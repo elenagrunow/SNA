@@ -1,0 +1,11 @@
+from,to,weight,relationship
+KTG,GW,4,4
+KTG,Wirecard,2,2
+KTG,AM,3,3
+UG,WS,3,3
+KTG,MB,2,2
+MP,AM,1,1
+SB,MP,2,1
+JOP,Wirecard,2,2
+JOP,CR,2,2
+WS,JOP,2,1
