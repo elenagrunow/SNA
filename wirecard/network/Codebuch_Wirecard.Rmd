@@ -1,0 +1,121 @@
+---
+title: "Codebuch Wirecard"
+author: "Collar-Crime"
+date: "12 3 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Datensatz Wirecardnetzwerk
+
+## Inhalt
+*Edges.csv (Edgelist)
+*Nodes.csv (Nodelist)
+*Codebuch.rm (Codierung der Datensätze)
+
+## Ursprung und Datenerhebung 
+Wir haben den Datensatz des Pretests anhand der Anhörung des Wirecard-Bundestagsausschusses vom 10. Dezember erhoben. 
+Die Daten sind für einen Pretest mit lediglich 12 Knoten erhoben worden.
+Das Netzwerk ist ein ungerichtetes two-mode Akteursnetzwerk. 
+
+Es wurden zwei getrennte Fragen erhoben:
+
+### Kontaktnetzwerk Wirecard
+1. Welche Kontaktintensität besteht zwischen Mitarbeitern von Wirecard und anderen Akteuren und Organisation außerhalb des Unternehmens?
+Für das Beziehungsnetzwerk *Contacts* wurde die Häufigkeit eines Kontakts zwischen einer Person/Organisation/Behörde gewichtet. Ein Gewicht von 4 wurde für “sehr häufigen” Kontakt vergeben. Ein Gewicht von 3 für "häufigen" Kontakt, ein Gewicht von 2, für “öfter” (also hin und wieder) vergeben. Ein Gewicht von 1, wurde für “sehr selten” vergeben. Insgesamt waren 4 Beziehungsmuster möglich.
+
+### Verbindungsnetzwerk Wirecard
+2. Welche Art der Beziehung besteht zwischen den Mitarbeitern des Unternehmens und den Akteuren außerhalb des Unternehmens?
+Für das Verbindungsnetzwerk *Ratio* wurde der Person/Organisation/Behörde, die eine dauerhafte Beziehung (Freundschaft) zu Wirecard hatte, ein Gewicht von 4 vergeben, die Person/Organisation/ Behörde, die in einer beeinflussenden Geschäftsbeziehung zum Unternehmen Wirecard stand (Lobbying) erhielt ein Gewicht von 3. Die Person/Organisation/ Behörde, die nur eine flüchtige Geschäftsbeziehung zu Wirecard (Beratung) hatte, erhielt das Gewicht 2. Mit dem Gewicht 1 wurde ein Beschäftigungsverhältnis beschrieben. Insgesamt waren 4 Beziehungsmuster möglich.
+
+# EDGE-Attribute
+**id**
+(eindeutige Codierung des Knoten)
+Jede ID entspricht einer Abkürzung eines Mitarbeiters von Wirecard oder einer Person außerhalb des Unternehmens bzw. einer Organisation oder Behörde, die unmittelbar mit Wirecard in Verbindung stand. 
+
+**weight**
+(Häufigkeit des Kontakts einer Person/Organisation/Behörde zu Wirecard)
+1 = einmaliger Kontakt
+2 = mehrmals Kontakt (2-4x)
+3 = häufig Kontakt (ab 5x)
+
+**relation** 
+(Beziehungsart zwischen den Personen/Organisation/Behörden und Wirecard)
+9 = Investoren/Anteilseigner
+8 = Kunden
+7 = Überprüfung
+6 = Hinweisgeber 
+5 = Geldgeber (Förderer)
+4 = Andauernde Beziehung (Freundschaft)
+3 = beeinflussende Geschäftsbeziehung (Lobbying)
+2 = flüchtige Geschäftsbeziehung mit Wirecard (Beratung)
+1 = Beschäftigungsverhältnis/Zusammenarbeit/Mitarbeiter
+
+
+# NODE-Attribute
+**id**
+Identische ID wie in der edgelist zur Identifikation der Knoten. 
+
+**name**
+Voller Name der Person/der Organisation.
+
+**name2**
+Zweiter Name, um id für die Knoten zu verwenden
+
+
+**sex**
+Geschlecht der beteiligten Person:
+1 = weiblich
+2 = männlich
+3 = divers
+
+**influence**
+Einflussnahme des Akteurs (sei es aus Wirtschaft, Politik oder aus dem Unternehmen Wirecard)
+1 = sehr gering
+2 = gering
+3 = kann Einfluss nehmen
+4 = hoch
+5 = sehr hoch 
+
+**age**
+Alter der involvierten Person:
+1 = bis 25 Jahre
+2 = 30 bis 40 Jahre
+3 = 41 bis 60 Jahre
+4 = 61 und älter
+
+**position**
+Position im Unternehmen, der Organisation
+0 = no data
+1 = Top-Verantwortung (Firmen Boss, Vorstandschef, Ministerpräsident)
+2 = Leader (Führungskraft, Manager)
+3 = No responsibility (keine Verantwortung)
+
+**type**
+0 = Wirecard
+1 = Person
+2 = Organisation, Regierung, Unternehmen
+
+
+**industry**
+1 = Insider (Wirecard-Personal)
+2 = Banken, Wirtschaftsprüfer
+3 = Journalisten, Whistleblower
+4 = Justiz
+5 = Politik
+6 = Wirtschaft
+7 = Ermittler (Polizei, Untersuchungsausschuss)
+
+
+**country**
+gibt den Hauptwohnsitz der Person, der Organisation an 
+
+**source1**
+1 = Untersuchungsausschuss
+2 = Berichterstattung Inland
+3 = Berichterstattung Ausland
+
+**source2**
+Der Link der Quelle der Beziehung wird angegeben.
