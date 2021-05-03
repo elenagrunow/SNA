@@ -1,0 +1,1318 @@
+---
+title: "Forschungsbericht Soziale Netzwerkanalyse Wirecard"
+author: "Collar-Crime"
+date: "Sommersemester 2021"
+output:
+  word_document:
+    toc: yes
+    toc_depth: '3'
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: 3
+    number_sections: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+  subtitle: Analyse des Beziehungsnetzwerks des Unternehmens Wirecard
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Abstract
+
+Der vorliegende Forschungsbericht untersucht die Beziehungsnetzwerke rund um den inzwischen insolventen, ehemals börsennotierten deutschen Zahlungsdienstleister Wirecard AG. Zuerst schildert der Forschungsbericht in einer kurzen Einleitung das aktuelle Geschehen um Wirecard.
+Dabei wird die Forschungsfrage dieses Berichts genauer erläutert.
+Anschließend folgt ein kurzer Einblick in den aktuellen Forschungsstand.
+Kapitel drei legt dar, aus welchen Quellen die Daten erhoben wurden und enthält den Zugang zum gesamten Datensatz dieses Berichts.
+Darauf folgt eine Darstellung des gesamten Netzwerks sowie eine vereinfachte Version der Darstellung, die zur besseren Analyse und Interpretation dient.
+Das entstandene Netzwerk ist ein ungerichtetes Two-Mode Akteursnetzwerk von 105 Akteuren.
+Es handelt sich um ein komplexes Konstrukt, das aus verschiedenen Akteuren sowie Organisationen besteht, die in den unterschiedlichsten Bereichen tätig sind.
+Darunter zählen Wirtschaftsprüfungsgesellschaften, Banken, Wirecard Personal und bedeutende Politiker\*innen.
+
+Im weiteren Verlauf des Forschungsberichts werden einzelne Teilnetzwerke nach Edge- und Node-Attributen erstellt.
+Bei der genaueren Analyse kristallisieren sich drei Akteure heraus, die für das Netzwerk von zentraler Bedeutung sind: Jan Marsalek, Markus Braun und Karl-Thedor zu Guttenberg.
+Aus diesem Grund werden im weiteren Verlauf des Forschungsberichts eben diese Akteure mit ihren Verbindungen zu anderen Akteuren und Organisationen genauer betrachtet und analysiert.
+Kapitel fünf zeigt eine finale Visualisierung des gesamten Netzwerks sowie einen abschließend direkten Vergleich der einzlenen Egonetzwerke der drei bedeutendsten Akteure miteinander.
+Das vorletzte Kapitel des Forschungsberichts beschäftigt sich mit den Erkenntnissen dieser Forschung und etwaigen Limitationen, die sich daraus ergeben.
+Der Forschungsbericht endet mit dem siebten Kapitel, das das Literaturverzeichnis, das Codebuch sowie die Teammitglieder der vorliegenden Arbeit und deren Aufgabenverteilungen umfasst.
+
+## Keywords
+
+Netzwerkanalyse, Broker-Funktion, Cliquen, Meinungsführer, Wirecard, White-Collar-Crime, Teilnetzwerke, Akteursnetzwerk, Wirecard
+
+# 1. Einleitung
+
+Die Wirecard AG ist ein ehemals börsennotierter deutscher Zahlungsdienstleister.
+Seit dem 25.
+Juni 2020 ist das Unternehmen insolvent.
+In der Bilanz hatte man mit 1,9 Milliarden Euro auf Treuhandkonten gerechnet, die laut Angaben des Unternehmens nicht existierten.
+Durch die häufige Berichterstattung in den Medien wurden die Autorinnen und Autoren dieses Forschungsberichts auf das Thema aufmerksam.
+Eine große Rolle bei der Motivation, die Netzwerkanalyse zum Thema Wirecard durchzuführen, spielte ohne Zweifel der vorhandene Crime-Faktor.
+
+Als Folge der Wirecard-Insolvenz wurde in der 19.
+Wahlperiode des Deutschen Bundestages am 1.
+Oktober 2020 auf Antrag der Fraktionen FDP, Die Linke und Bündnis 90/Die Grünen beschlossen, einen Untersuchungsausschuss einzurichten, der die Rolle der Bundesregierung im Kontext mit den Vorkommnissen bei der Wirecard AG aufklären soll.
+Die Teilnehmerlisten aus den öffentlichen Sitzungen des Untersuchungsausschusses bis zum 11.
+Februar dienten uns als Quelle für unsere Datenerhebung.
+Darüber hinaus haben wir unsere Daten durch systematische Auswertung der Berichterstattung in der deutschen Presse (insbesondere DER SPIEGEL und Handelsblatt) und in der internationalen Presse (Financial Times) erhoben.
+Die Datenerhebung insgesamt fand vom 28.
+Dezember 2020 bis zum 19.
+Februar 2021 statt.
+
+Wir haben uns in dieser Netzwerkanalyse mit zwei Fragen intensiv auseinandergesetzt, die uns zu unserer finalen Forschungsfrage geführt haben:
+
+## 1.1. Kontaktnetzwerk Wirecard
+
+Welche Kontaktintensität besteht zwischen Mitarbeitern von Wirecard und anderen Akteuren und Organisation außerhalb des Unternehmens?
+Für das Beziehungsnetzwerk *Contacts* wurde die Häufigkeit eines Kontakts zwischen einer Person/Organisation/Behörde mit dem Attribut weight gewichtet.\
+Ziel dieser Frage war es herauszufinden, wie häufig und intensiv Mitarbeiter von Wirecard Kontakte zu anderen Personen und Organisationen außerhalb des Unternehmens hatten, um damit relevante Akteure außerhalb des Unternehmens zu identifizieren.
+
+## 1.2. Verbindungsnetzwerk Wirecard
+
+Welche Art der Beziehung besteht zwischen den Mitarbeitern des Unternehmens und den Akteuren außerhalb des Unternehmens?
+Für das Verbindungsnetzwerk *Relation* wurde die Art der Beziehung zwischen Wirecard und der jeweiligen Person/Organisation/Behörde begutachtet.\
+Ziel dieser Frage war es herauszufinden, welche Akteure außerhalb des Unternehmens wie relevant gewesen sind, sodass sie Teil des Unterstützernetzwerks der kriminellen Machenschaften der Wirecard AG sein könnten.
+
+## 1.3. Broker-Positionen im Netzwerk
+
+Insgesamt interessieren uns aber insbesondere die Akteure und Organisationen, die entscheidende Broker-Positionen im Wirecard-Netzwerk einnehmen.
+
+# 2. Vorarbeiten und vergleichbare Studien
+
+## 2.1. Forschungsstand
+
+Im Bereich der sozialen Netzwerkanalyse war John Atkinson Hobson Ende des 19.
+Jahrhunderts einer der ersten, der systematisch Verbindungen von Organisationen untersuchte.
+Er erstellte eine einfache Tabelle von großen südafrikanischen Firmen und deren Vorstandsmitgliedern.
+Er zeigte damit, wie die Firmen De Beers und Rand Mines durch gemeinsame Vorstände eine große Anzahl von Firmen kontrollieren konnten.
+Die Netzwerkanalyse gewinnt immer mehr an Bedeutung für die Organisationsforschung, um informelle Beziehungen sichtbar zu machen, wie Jörg Raab im Handbuch der Netzwerkforschung erklärt.
+Dieselbe Ansicht teilt Richard Pircher, da normale Hierarchien nicht im Stande sind, die Beziehung einzelner Mitarbeiter untereinander zu betrachten.
+In Deutschland ist die Zahl der Organisationsforscher, die die Netzwerkanalyse verwenden, ziemlich klein.
+Aus diesem Grund greift das Forschungsdesign hauptsächlich die Studie von Burgess und Shaw auf, und lehnt sich an die Arbeit von Ronald Burt an, der in mehreren Studien zeigte, dass Manager verschiedene Cluster innerhalb eines Netzwerkes als sogenannte Broker miteinander verbinden.
+
+Gerade bei Unternehmen, die im Wirtschaftssektor tätig sind, ist eine Netzwerkanalyse äußerst wichtig.
+Laut einer aktuellen KPMG Studie aus dem Jahr 2020, war fast jedes dritte Unternehmen in Deutschland in den vergangenen zwei Jahren von Wirtschaftskriminalität betroffen.
+Die Gefahr und das Risiko davon betroffen zu sein, drohen laut einer Studie der KPMG aus dem Jahr 2011 nicht nur von extern, sondern auch von internen Mitarbeitern.
+Weltweit werden in 56 Prozent der Fälle Warnsignale ignoriert, was auch ein typisches Verhaltensmuster in Deutschland darstellt.
+
+## 2.2. Arbeitshypothese
+
+In diesem Forschungsbericht gehen wir davon aus, dass vor allem Markus Braun und Jan Marsalek entscheidende Positionen im Netzwerk einnehmen werden.
+Jedoch gilt es zu überprüfen, ob auch andere Akteure entscheidende Positionen vertreten.
+
+# 3. Datenerhebung: Zugang, Bereinigung und Codebuch
+
+## 3.1. Datenzugang
+
+Die Daten wurden mithilfe der Protokolle des Untersuchungsausschusses, inländische (Handelsblatt, SPIEGEL) und ausländische Berichterstattung (Financial Times) erhoben.
+
+## 3.2. Zugang zum Datensatz
+
+Der Datensatz ist unter [Github](https://github.com/elenagrunow/SNA/tree/main/wirecard/network) verfügbar.
+
+## 3.3. Codebuch
+
+Das [Codebuch](https://github.com/elenagrunow/SNA/blob/main/wirecard/network/Codebuch.Rmd) beschreibt die Variablen, Relationen und Gewichte des Netzwerks und ist ebenfalls auf Github hinterlegt.
+
+# 4. Analyse und Interpretation
+
+## 4.1. Das Gesamtnetzwerk
+
+Das Gesamtnetzwerk umfasst 105 Knoten und 130 Beziehungen (siehe igraph-Objekt).
+Es ist ungerichtet und gewichtet nach der Häufigkeit und der Art des Kontakts.
+
+```{r Gesamtnetzwerk einfach, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.height=6, fig.width=8}
+# erste Visualisierung des Pretests zur Wirecard-Erhebung
+
+library(igraph)
+
+# liest die Edgelist als "el" ein
+el <- read.csv("https://raw.githubusercontent.com/elenagrunow/SNA/main/wirecard/network/edge_wirecard.csv", header=T, as.is=T, sep = ",")
+
+# liest die Nodelist mit den Namen ein
+nodes <- read.csv("https://raw.githubusercontent.com/elenagrunow/SNA/main/wirecard/network/node_wirecard.csv", header=T, as.is=T, sep = ",")
+
+
+# Zwischenschritt verbindet die Edge- und Nodelist zu einer Matrix
+wc_matrix <- as.matrix(el)
+
+
+# generiert ein igraph-Objekt (dataframe) aus der Matrix, das gerichtet ist (directed = true)
+wc <- graph_from_data_frame(d=wc_matrix, vertices = nodes, directed=FALSE)
+
+
+# generiert die Standard-Visualisierung des Netzwerks
+plot(wc,
+     vertex.label=NA)
+
+# definiert einige grafische Elemente, damit wir diese nicht immer wieder eingeben müssen
+E(wc)$arrow.size <- .1
+E(wc)$color="darkblue"
+E(wc)$width <- E(wc)$weight
+E(wc)$curved=.2
+V(wc)$color = "lightblue"
+V(wc)$frame.color = "white"
+V(wc)$label.dist = 3
+V(wc)$label.degree=6
+V(wc)$label.cex=.8
+V(wc)$label.family="Helvetica"
+V(wc)$label.font=1
+V(wc)$label.color="darkblue"
+
+degree <- degree(wc)
+
+# einfacher plot
+
+plot(wc,
+     vertex.size =10,
+     main="Wirecard-Netzwerk",
+     #vertex.label=V(wc)$name2
+     vertex.label=NA)
+
+```
+
+### 4.1.1. Beschreibung des Netzwerks
+
+```{r Beschreibung des Netzwerks, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Parameter zu Beschreibung des Netzwerks
+
+## ist das Netzwerk bereits vereinfacht?
+is.simple(wc)
+
+## besteht das Netzwerk aus Komponenten?
+## wenn ja, wie vielen?
+is.connected(wc)
+#components(wc)
+
+## Dichte des Netzwerks
+edge_density(wc, loops=FALSE)
+
+## Umfang des Netzwerks
+diameter(wc)
+
+## Pfaddistanzen (Distance)
+farthest_vertices(wc)
+```
+
+Das Hauptnetzwerk besteht aus einer Komponente mit 105 Knoten.
+Die Dichte im Netzwerk beträgt 2,4 Prozent von allen möglichen Verbindungen.
+Die Dichte gibt Auskunft über die realisierten Verbindungen.
+Die maximale Pfaddistanz beträgt 17 Schritte.
+
+```{r Einfache Visualisierung des erstellten Objekt, echo=FALSE, fig.height=10, fig.width=14, message=TRUE, warning=FALSE, paged.print=TRUE}
+
+
+plot(wc,
+     asp=0, 
+     layout=layout.kamada.kawai,
+     edge.arrow.size=.5,
+     vertex.size=10,
+     main ="Übersicht Gesamtnetzwerk",
+     vertex.label=V(wc)$name2)
+```
+
+### 4.1.2. Netzwerke vereinfachen
+
+Der erste Überblick zeigt, das Netzwerk wird durch die unterschiedlichen Quellen und durch die Größe des Netzwerks schnell unübersichtlich.
+Deshalb ist es sinnvoll, ein vereinfachtes Gesamtnetzwerk zu erstellen.
+Vereinfacht bedeutet in diesem Fall, dass visuell in Organisationen und Personen im Netzwerk unterschieden wird, damit die Beziehungen deutlicher werden und insgesamt eine bessere Übersichtlichkeit gewährleistet wird.
+
+```{r Netzwerk nach Organisationen und Personen unterschieden, echo=FALSE, fig.height=10, fig.width=14, message=TRUE, warning=FALSE, paged.print=TRUE}
+
+
+
+# Legende
+col_leg <- c("peru", "royalblue")
+akteur <- c("Personen", "Organisationen")
+V(wc)$color <- col_leg[V(wc)$type] # selektiert die Vertex-Farbe nach den Farben im Vector colrs
+
+# vertex.shape
+V(wc)$shape <- c("circle", "square") [V(wc)$type+1]
+
+
+E(wc)$arrow.size <- .1
+E(wc)$color="black"
+E(wc)$width <- E(wc)$weight
+E(wc)$curved=.2
+V(wc)[V(wc)$type == 1]$shape <- "circle"
+V(wc)[V(wc)$type == 2]$shape <- "square"
+V(wc)[V(wc)$type == 1]$color = "peru"
+V(wc)[V(wc)$type == 2]$color = "royalblue"
+V(wc)$frame.color = "white"
+V(wc)$label.dist = 0
+V(wc)$label.degree=6
+V(wc)$label.cex=.8
+V(wc)$label.family="Helvetica"
+V(wc)$label.font=1
+V(wc)$label.color="darkblue"
+
+
+# einfacher plot
+
+plot(wc,
+     asp=0,
+     layout=layout_nicely,
+     vertex.size=8,
+     edge.curved=curve_multiple(wc),
+     main="Wirecard-Netzwerk",
+     vertex.label=V(wc)$name2)
+
+legend(x=1, # Position auf der X-Achse
+       y=-1, # Position auf der Y-Achse
+       legend = akteur, # ausgegeben wird der Vector "geschlecht"
+       col = col_leg, # Farbcodierung nach Vector colrs
+       text.col= col_leg, # Farbe der Legende in der Farbe des Vectors
+       bty = "n", # verhindert, dass eine Box gezogen wird
+       pch=20, # plotting characters: definiert einen Kreis (siehe ?graphics)
+       pt.cex = 2, # definiert die Textgröße
+       cex = 1, # skaliert die gesamte Legende
+       inset = c(0.1, 0.1) # rückt die Legende leicht ein.
+        )
+
+```
+
+Erstellen des Gesamtnetzwerks ohne den Akteur "Wirecard":
+
+```{r Gesamtnetzwerk ohne Wirecard, echo=FALSE, fig.height=10, fig.width=14, message=TRUE, warning=FALSE, paged.print=TRUE}
+library(igraph)
+
+el <- read.csv("https://raw.githubusercontent.com/elenagrunow/SNA/main/wirecard/network/edge_wirecard.csv", header=T, as.is=T, sep = ",")
+
+nodes <- read.csv("https://raw.githubusercontent.com/elenagrunow/SNA/main/wirecard/network/node_wirecard.csv", header=T, as.is=T, sep = ",")
+
+wc_matrix <- as.matrix(el)
+
+wc <- graph_from_data_frame(d=wc_matrix, vertices = nodes, directed=FALSE)
+
+wc_ow <- delete.vertices(wc, V(wc)[name2="Wirecard"])
+
+# generiert die Standard-Visualisierung des Netzwerks
+plot(wc_ow)
+
+# definiert einige grafische Elemente, damit wir diese nicht immer wieder eingeben müssen
+E(wc_ow)$arrow.size <- .1
+E(wc_ow)$color="darkblue"
+E(wc_ow)$width <- E(wc_ow)$weight
+E(wc_ow)$curved=.2
+V(wc_ow)$color = "lightblue"
+V(wc_ow)$frame.color = "white"
+V(wc_ow)$label.dist = 3
+V(wc_ow)$label.degree=6
+V(wc_ow)$label.cex=.8
+V(wc_ow)$label.family="Helvetica"
+V(wc_ow)$label.font=1
+V(wc_ow)$label.color="darkblue"
+
+degree <- degree(wc_ow)
+
+# einfacher plot
+
+plot(wc_ow,
+     vertex.size =10,
+     main="Wirecard-Netzwerk ohne Wirecard",
+     vertex.label=V(wc_ow)$name2)
+
+
+```
+
+```{r Hervorhebung der populärsten Knoten im Netzwerk, echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# mit der Auswahl der Knoten lassen sich deren Rahmenfarben spezifisch angeben
+V(wc)[V(wc)$name2 == "MB"]$color <- "green"
+V(wc)[V(wc)$name2 == "JM"]$color <- "red"
+
+plot(wc,
+     layout=layout_nicely,
+     vertex.size=15,
+     # vertex.label.cex=2,
+     # vertex.frame.color=NA,(muss ausgeschaltet sein, damit die Knoten visualisiert werden können
+     edge.arrow.size=.5,
+     edge.color="grey80",
+     edge.curved=.2,
+     edge.curved=curve_multiple(wc),
+     vertex.label=V(wc)$name2)
+
+title("Gesamtnetzwerk vereinfacht", 
+      sub = "beliebteste Knoten in grün (höchster Bewetweenness-Wert), rot (zweit-höchster Betweenness-Wert)",
+      cex.main = 2, col.main= "black",
+      cex.sub = 1, font.sub = 1, col.sub = "black")
+
+```
+
+Die Hervorhebung der Broker-Personen im Netzwerk zeigt, wie entscheidend diese Akteure, einmal Markus Braun, aber auch Jan Masalek waren beziehungsweise sind.
+Daraus kann man schlussfolgern, dass ohne diese Broker das Netzwerk in dieser Form nicht zustande kommen wäre.
+Somit hätte man den weitreichenden Betrug eher eindämmen oder auch von vornehinein verhindern können.
+
+## 4.2. Analyse der Teilnetzwerke: Edge- und Nodeattribute
+
+Die Auswahl der Teilnetzwerke ist abhängig von der jeweiligen Forschungsfrage.
+Für dieses Netzwerk bietet sich ein Vergleich zwischen den unterschiedlichen Quellen der Erhebung an.
+Auch das Verantwortungs-Teilnetzwerk bietet sich an, um herauszufinden, wer die führenden Akteure sind.
+
+### 4.2.1. Teilnetzwerke nach EDGE-Attributen
+
+Die Selektion der Edge-Attribute geschieht folgendermaßen:
+
+1)  **source1** Quelle der Berichterstattung, erste Nennung, d.h.
+    Informationsquelle aus „Untersuchungsausschuss" (Bericht des Untersuchungsausschusses) sind mit (Wert = 1) aufgeführt.
+
+2)  **source1** Quelle der Berichterstattung, zweite Nennung, d.h.
+    Informationsquelle aus „Berichterstattung Inland" (Handelsblatt und Spiegel) sind mit (Wert = 2) aufgeführt.
+
+3)  **source1** Quelle der Berichterstattung, dritte Nennung, d.h.
+    Informationsquelle aus „Berichterstattung Ausland" (Financial Times) sind mit (Wert 3) aufgeführt.
+
+Dadurch ergeben sich folgende Quellen-Teilnetzwerke:
+
+1)  **wc_ua** ungerichtetes Beziehungsnetzwerk aus Quelle: Untersuchungsausschuss (1)
+
+2)  **wc_bi** ungerichtetes Beziehungsnetzwerk aus Quelle: Inland (Spiegel und Handelsblatt) (2)
+
+3)  **wc_ba** ungerichtetes Beziehungsnetzwerk aus Quelle: Ausland (Spiegel und Handelsblatt) (3)
+
+**Achtung:** Die Werte im Quellen Teilnetzwerk sind nicht gewichtet, sondern beschreiben nur die Beziehungen und Verbindungen zum Fall Wirecard anhand der jeweiligen Berichterstattung und gelten nur für dieses.
+Für die Analyse der anderen Beziehungen empfiehlt es sich, das EDGE-Attribut „weight", „relation" und „source2" zu löschen.
+
+#### 4.2.1.1. Teilnetzwerke nach Quellen
+
+*Generelle Teilnetzwerke*\
+- Untersuchungsausschuss - Berichterstattung Inland - Berichterstattung Ausland
+
+##### 4.2.1.1.1. Teilnetzwerk Untersuchungsausschuss
+
+Für dieses Netzwerk sollen nun nur noch die Beziehungen aus dem Untersuchungsausschuss Wirecards angezeigt werden.
+Damit wird das Netzwerk in ein neues Teilnetzwerk zerlegt, das nur noch aus Beziehungen dieser Quelle besteht:
+
+```{r Teilnetzwerk Untersuchungsausschuss, echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+wc_ua <- subgraph.edges(wc, E(wc)[source1==1])
+
+plot (wc_ua,
+      asp=0,
+      layout=layout_in_circle,
+      vertex.size=7,
+      edge.curved=curve_multiple(wc_ua),
+      main="Wirecard-Netzwerk Untersuchungsausschuss",
+      vertex.label=V(wc_ua)$name2,
+      vertex.label.color = "black")
+
+
+```
+
+##### 4.2.1.1.2. Teilnetzwerk Berichterstattung Inland
+
+```{r Teilnetzwerk Berichterstattung Inland, echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+
+wc_bi <- subgraph.edges(wc, E(wc)[source1==2])
+
+plot (wc_bi,
+      asp=0,
+      layout=layout_in_circle,
+      vertex.size=7,
+      edge.curved=curve_multiple(wc_bi),
+      main="Wirecard-Netzwerk Berichterstattung Inland",
+      vertex.label=V(wc_bi)$name2)
+
+```
+
+##### 4.2.1.1.3. Teilnetzwerk Berichterstattung Ausland
+
+```{r Teilnetzwerk Berichterstattung Ausland, echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+wc_ba <- subgraph.edges(wc, E(wc)[source1==3])
+
+plot (wc_ba,
+      asp=0,
+      layout=layout_in_circle,
+      vertex.size=8,
+      edge.curved=curve_multiple(wc_ba),
+      main="Wirecard-Netzwerk Berichterstattung Ausland",
+      vertex.label=V(wc_ba)$name2)
+
+```
+
+##### 4.2.1.1.4. Vergleich der Teilnetzwerke nach Quellen
+
+Im direkten Vergleich der Teilnetzwerke, die nach Berichterstattung im Ausland (Financial Times), im Inland (Spiegel und Handelsblatt) und dem Untersuchungsausschuss des Deutschen Bundestages selektiert wurden, weist das Teilnetzwerk „Untersuchungsausschuss" die meisten Verbindungen auf.
+
+ACHTUNG: Um den Datensatz zu vereinfachen, wurden alle Doppelungen entfernt.
+Beispiel: In allen drei Berichterstattungen sowohl im Inland, im Ausland als auch dem Untersuchungsausschuss, wird über die Verbindung von Theodor zu Guttenberg zu Angela Merkel berichtet.
+Um mögliche Doppelungen zu vermeiden, wurde diese Verbindung nur in einem der drei Teilnetzwerke aufgeführt und aus den restlichen zwei Teilnetzwerken ausgesondert.
+Trotz dieser Art von Selektierung weist das Teilnetzwerk Untersuchungsausschuss die meisten Verbindungen auf.
+Somit ist die Berichterstattung des Untersuchungsausschusses der Dreh- und Angelpunkt bei der Datenlieferung im Fall Wirecard.
+
+1)  Das Teilnetzwerk „Untersuchungsausschuss" hat 46 Knoten und 57 Kanten, davon können 26 Knoten Personen und 20 Knoten einer Behörde, einer Organisation oder einem Unternehmen zugeordnet werden.
+
+2)  Das Teilnetzwerk „Inland" hat 44 Knoten und 52 Kanten, davon können 39 Knoten Personen und 5 Knoten einer Behörde, einer Organisation oder einem Unternehmen zugeordnet werden.\
+
+3)  Das Teilnetzwerk „Ausland" hat 22 Knoten und 21 Kanten, davon können 9 Knoten Personen und 13 Knoten einer Behörde, einer Organisation oder einem Unternehmen zugeordnet werden.
+
+```{r Vergleich Teilnetzwerke Quellen, echo=FALSE, fig.height=6, fig.width=10}
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(wc_ua, main="Untersuchungsausschuss", layout=layout_nicely, vertex.label=V(wc_ua)$name2)
+plot(wc_bi, main="Berichterstattung Inland", layout=layout_nicely, vertex.label=V(wc_bi)$name2)
+plot(wc_ba, main="Berichterstattung Ausland", layout=layout_nicely, vertex.label=V(wc_ba)$name2)
+```
+
+### 4.2.2. Teilnetzwerke nach NODE-Attributen
+
+**Verantwortungsnetzwerk** Eine weitere Form der Teilnetzwerkanalyse wäre es, das Verantwortungsnetzwerk nach der Verantwortung im Unternehmen oder der Organisation zu selektieren.
+Hierfür wird das NODE-Attribut **position** in vier Nennungen unterteilt.
+Je nach Nennung lässt sich ggf.
+der Grad an Verantwortung innerhalb dieses Netzwerks aufzeigen.
+
+Das bedeutet, dass es folgende Teilnetzwerke aufgrund der NODE-Attribute gibt:
+
+1)  Position im Unternehmen/Organisation, erste Nennung, d.h.
+    Bei der Berichterstattung wurden keine Angaben über den Verantwortungsgrad der Person gemacht und sind mit (Wert = 0) aufgeführt.
+
+2)  Position im Unternehmen/Organisation, zweite Nennung, d.h.
+    Bei der Berichterstattung wurden Angaben über den Verantwortungsgrad der Person gemacht und sind mit (Wert = 1) für „Top Verantwortung" aufgeführt.
+
+3)  Position im Unternehmen/Organisation, dritte Nennung, d.h.
+    Bei der Berichterstattung wurden Angaben über den Verantwortungsgrad der Person gemacht und sind mit (Wert = 2) für „Leader" aufgeführt.
+
+4)  Position im Unternehmen/Organisation, vierte Nennung, d.h.
+    Bei der Berichterstattung wurden Angaben über den Verantwortungsgrad der Person gemacht und sind mit (Wert = 3) für „No responsibility" aufgeführt.
+
+```{r Top-Verantwortungsnetzwerk, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, fig.width=8, fig.height=8}
+
+wc_top <- delete.vertices(wc, V(wc)[type==2])
+wc_top1 <- delete.vertices(wc_top, V(wc_top) [position==2])
+wc_top2 <- delete.vertices(wc_top1,V(wc_top1)[position==3])
+
+
+cw1 <- cluster_walktrap(wc_top1) # wendet die Clusterung auf das Netzwerk an
+modularity(cw1) # berechnet den Modularitätswert
+membership(cw1) # weist die Mitgliedschaft in die Community zu
+plot(cw1, wc_top1,
+     #vertex.label=V(wc_top1)$name2,
+     edge.curved=curve_multiple(wc_top1)) 
+```
+
+## 4.3. Analyse der Teilnetzwerke: Componenten, Cluster und Cliquen
+
+Die Analyse hat Teilnetzwerke nach spezifischen Kriterien generiert.
+Jedes Netzwerk verfügt aber auch über spezielle Eigenarten, wenn sich Knoten nach bestimmten Kriterien zusammenfinden.
+Im Folgenden werden die Komponenten sowie die Cluster des Verantwortungsnetzwerks genauer analysiert.
+
+Für Komponenten gilt: Wenn keine isolierten Knoten existieren und alle Knoten in einem Hauptnetzwerk verbunden sind, dann liegt ein Netzwerk mit einer Komponente vor.
+Bei den Teilnetzwerken der einzelnen Quellen erkennt man sofort, dass diese immer aus einer Komponente bestehen.
+Deshalb wird im Folgenden nur das Verantwortungsnetzwerk berücksichtigt.
+
+### 4.3.1. Komponenten
+
+```{r Komponenten-Analyse, echo=FALSE, fig.height=6, fig.width=10, message=FALSE, warning=FALSE, paged.print=TRUE}
+#Anzahl der Komponenten des Top-Verantwortungsnetzwerks
+count_components(wc_top1)
+
+#Gruppen unterteilen, um zu verstehen, welche vertices des Top-Verantwortungsnetzwerks zu welcher Gruppe gehören
+wc_top1_groups <- groups(components(wc_top1))
+wc_top1_groups
+```
+
+Das Verantwortungsnetzwerk besteht aus vier Komponenten: einer großen Hauptkomponente und drei weiteren einzelnen Komponenten, die isoliert sind.
+Wie bereits die Visualisierung oben verdeutlicht hat, sind die drei Knoten Klaus R. Michalak, Michael Papageogiou und Martin Zielke von der Hauptkomponente isoliert.
+Es ist anzunehmen, dass diese drei Knoten abseits vom großen Verantwortungsnetzwerk stehen
+
+```{r verbundene Cluster, echo=FALSE, fig.height=6, fig.width=10, message=FALSE, warning=FALSE, paged.print=TRUE}
+#Anzahl der Cluster
+clusters(wc_top1)
+#Sind die Cluster miteinander verbunden?
+is_connected(wc_top1)
+
+```
+
+Das Verantwortungsnetzwerk besteht aus 36 Knoten, die zur Hauptkomponente gehören und drei weiteren einzelnen Knoten.
+Die einzelnen Komponenten des Teilnetzwerks sind nicht miteinander verbunden.
+
+### 4.3.2. Cluster
+
+Es ist zu erkennen, dass das Verantwortungsnetzwerk aus fünf Clustern besteht, die jeweils mehrere Akteure besitzen.
+Markus Braun und Gutenberg befinden sich in einem gemeinsamen Cluster.
+Jan Marsalek befindet sich in einem Cluster, welches mit dem von Markus Braun und Gutenberg verbunden ist.
+Die drei Broker zählen zu den Akteuren mit einer Top-Verantwortung und sind über ihre Cluster miteinander verbunden.
+Somit zählen sie zu den einflussreichsten Akteuren im Verantwortungsnetzwerk und auch im gesamten Wirecard-Netzwerk.
+
+## 4.4. Ego-Netzwerke
+
+Manchmal ist es hilfreich, bestimmte Knoten aus dem Netzwerk zu extrahieren, um diese genauer zu untersuchen.
+Damit "zoomt" man auf einen Knoten im Netzwerk.
+Jedes Netzwerk besteht aus Egos (einzelne Knoten) und deren Alteri.
+Diese Ego-Netzwerke lassen sich auch einzeln analysieren.
+Wir verwenden dafür die Befehle ego_size() und make_ego_graph().
+
+Uns interessiert, wer im Netzwerk die meisten Beziehungen hat und dessen direktes Netzwerk.
+Deshalb selektieren wir zunächst den Knoten mit dem höchsten Betweenness-Wert und erstellen danach das Ego-Netzwerk.
+
+#### 4.4.1. Egonetzwerk Markus Braun (ohne Wirecard)
+
+##### 4.4.1.1. Egonetzwerk Markus Braun erste Ordnung
+
+```{r Egonetzwerk Markus Braun - erste Ordnung, echo=FALSE, fig.height=6, fig.width=8, warning=FALSE, message=FALSE, paged.print=TRUE}
+wc_ow <- delete.vertices(wc, V(wc)[name2="Wirecard"])
+bs <- betweenness(wc_ow, normalized=T)
+
+ego_size
+
+wc_mb1 <- make_ego_graph(wc_ow, order = 1, nodes = V(wc_ow)$name2 == "MB", mode ="all")
+
+wc_mb1 <- wc_mb1[[1]]
+
+plot(wc_mb1,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_mb1),
+     main="Markus-Braun-Netzwerk",
+     vertex.label=V(wc_mb1)$name2)
+```
+
+##### 4.4.1.2. Egonetzwerk Markus Braun, zweite und dritte Ordnung
+
+Ego-Netzwerke lassen sich leicht um die zweite oder dritte Ordnung erweitern.
+Dies ermöglicht eine genauere Analyse der Beziehungen um den Ego-Knoten.
+
+```{r Egonetzwerk Markus Braun - zweite und dritte Ordnung, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+ego_size
+
+#zweitee Ordnung
+wc_mb2 <- make_ego_graph(wc_ow, order = 2, nodes = V(wc_ow)$name2 == "MB", mode ="all")
+
+
+wc_mb2 <- wc_mb2[[1]]
+
+plot(wc_mb2,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_mb2),
+     main="Markus-Braun-Netzwerk",
+     vertex.label=V(wc_mb2)$name2)
+
+# dritte Ordnung
+wc_mb3 <- make_ego_graph(wc_ow, order = 2, nodes = V(wc_ow)$name2 == "MB", mode ="all")
+
+wc_mb3 <- wc_mb3[[1]]
+
+plot(wc_mb3,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_mb3),
+     main="Markus-Braun-Netzwerk",
+     vertex.label=V(wc_mb3)$name2)
+
+# Darstellung als Vergleich:
+
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(wc_mb1, edge.arrow.size=.3, main="Erster Grad")
+plot(wc_mb2, edge.arrow.size=.3,  main="Zweiter Grad")
+plot(wc_mb3, edge.arrow.size=.3, main="Dritter Grad")
+
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+```
+
+##### 4.4.1.3. Egonetzwerk Markus Braun, Cluster Walktrap Alg.
+
+```{r Egonetzwerk Markus Braun - Cluster Walktrap Alorithmus, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+   
+is_connected(wc_mb3)
+
+cw1 <- cluster_walktrap(wc_mb3) # wendet die Clusterung auf das Netzwerk an
+modularity(cw1) # berechnet den Modularitätswert
+membership(cw1) # weist die Mitgliedschaft in die Community zu
+plot(cw1, wc_mb3,
+     vertex.label=V(wc_mb3)$name2,
+     edge.curved=curve_multiple(wc_mb3)) 
+```
+
+Die Visualisierung zeigt, dass Markus Braun eine direkte Verbindung zu drei verschiedenen Clustern hat.
+Eine Verbindung besteht zu dem Broker und zweitwichtigsten Person Jan Marsalek.
+Eine weitere direkte Verbindung besteht zu Karl-Theodor zu Guttenberg, der Kontakte im politischen Bereich pflegt und Braun somit einen Zugang in diesen Tätigkeitsbereich verschaffen konnte.
+Neben diesen beiden Verbindungen hat Braun Kontakte zur Wirtschaftsprüfungsgesellschaft KPMG.
+
+#### 4.4.2 Egonetzwerk Jan Marsalek (ohne Wirecard)
+
+##### 4.4.2.1. Egonetzwerk Jan Marsalek, erste Ordnung
+
+```{r Egonetzwerk Jan Marsalek, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+ego_size
+
+wc_jm1 <- make_ego_graph(wc_ow, order = 1, nodes = V(wc_ow)$name2 == "JM", mode ="all")
+
+wc_jm1 <- wc_jm1[[1]]
+
+V(wc_jm1)[V(wc_jm1)$type == 1]$shape = "circle"
+V(wc_jm1)[V(wc_jm1)$type == 2]$shape = "square"
+V(wc_jm1)[V(wc_jm1)$type == 1]$color = "peru"
+V(wc_jm1)[V(wc_jm1)$type == 2]$color = "royalblue"
+
+plot(wc_jm1,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_jm1),
+     main="Jan-Marsalek-Netzwerk",
+     vertex.label=V(wc_jm1)$name2)
+```
+
+##### 4.4.2.2. Egonetzwerk Jan Marsalek zweite und dritte Ordnung
+
+```{r Egonetzwerk Jan Marsalek - zweite, dritte Ordnung, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+
+#zweite Ordnung
+wc_jm2 <- make_ego_graph(wc_ow, order = 2, nodes = V(wc_ow)$name2 == "JM", mode ="all")
+
+wc_jm2 <- wc_jm2[[1]]
+
+V(wc_jm2)[V(wc_jm2)$type == 1]$shape = "circle"
+V(wc_jm2)[V(wc_jm2)$type == 2]$shape = "square"
+V(wc_jm2)[V(wc_jm2)$type == 1]$color = "peru"
+V(wc_jm2)[V(wc_jm2)$type == 2]$color = "royalblue"
+
+plot(wc_jm2,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_jm2),
+     main="Jan-Masalek-Netzwerk",
+     vertex.label=V(wc_jm2)$name2)
+
+# dritte Ordnung
+wc_jm3 <- make_ego_graph(wc_ow, order = 3, nodes = V(wc_ow)$name2 == "JM", mode ="all")
+
+wc_jm3 <- wc_jm3[[1]]
+
+V(wc_jm3)[V(wc_jm3)$type == 1]$shape = "circle"
+V(wc_jm3)[V(wc_jm3)$type == 2]$shape = "square"
+V(wc_jm3)[V(wc_jm3)$type == 1]$color = "peru"
+V(wc_jm3)[V(wc_jm3)$type == 2]$color = "royalblue"
+
+plot(wc_jm3,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     vertex.label=V(wc_jm3)$name2)
+
+# Darstellung als Vergleich:
+
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(wc_jm1, edge.arrow.size=.3, main="Erster Grad")
+plot(wc_jm2, edge.arrow.size=.3,  main="Zweiter Grad")
+plot(wc_jm3, edge.arrow.size=.3, main="Dritter Grad")
+
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+```
+
+##### 4.4.2.3. Egonetzwerk Jan Marsalek, Cluster Walktrap Alg.
+
+```{r Egonetzwerk Jan Marsalek - Cluster Walktrap Algorithmus, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+   
+is_connected(wc_jm3)
+
+cw2 <- cluster_walktrap(wc_jm3) # wendet die Clusterung auf das Netzwerk an
+modularity(cw2) # berechnet den Modularitätswert
+membership(cw2) # weist die Mitgliedschaft in die Community zu
+plot(cw2, wc_jm3,
+     vertex.label=V(wc_jm3)$name2,
+     edge.curved=curve_multiple(wc_jm3)) 
+```
+
+Die Visualisierung zeigt, dass Jan Marsalek zu vier anderen Clustern eine direkte Verbindung besitzt.
+Bereits oben im Egonetzwerk von Markus Braun wurde die Verbindung zwischen den beiden zentralen Akteuren Marsalek und Braun deutlich.
+Neben dieser Verbindung hat Marsalek Kontakte ins Ausland nach Lybien und zu Rajaratnam Shanmugaratnam, der aus Sri Lanka kommt.
+Äußerst interessant ist Marsaleks starke Verbindung zu Brigitte und Carlos Häuser, die beide zu Insidern von Wirecard zählen.
+Somit hatte er eine wichtige Verbindung, die ihm vermutlich Zugang zu wertvollen Daten und Akten verschaffte.
+
+### 4.4.3. Egonetzwerk Karl-Theodor zu Guttenberg
+
+#### 4.4.3.1. Egonetzwerk Karl-Theodor zu Guttenberg erste Ordnung
+
+```{r Egonetzwerk Karl-Theodor zu Guttenberg - erste Ordnung, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+# Karl-Theodor zu Guttenberg
+wc_ktg1 <- make_ego_graph(wc_ow, order = 1, nodes = V(wc_ow)$name2 == "KTG", mode ="all")
+
+wc_ktg1 <- wc_ktg1[[1]]
+
+V(wc_ktg1)[V(wc_ktg1)$type == 1]$shape = "circle"
+V(wc_ktg1)[V(wc_ktg1)$type == 2]$shape = "square"
+V(wc_ktg1)[V(wc_ktg1)$type == 1]$color = "peru"
+V(wc_ktg1)[V(wc_ktg1)$type == 2]$color = "royalblue"
+
+plot(wc_ktg1,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_ktg1),
+     main="Karl-Theodor-zu-Guttenberg-Netzwerk",
+     vertex.label=V(wc_ktg1)$name2)
+```
+
+#### 4.4.3.2. Egonetzwerk Karl-Theodor zu Guttenberg zweite und dritte Ordnung
+
+```{r Egonetzwerk Karl-Theodor zu Guttenberg - zweite und dritte Ordnung, fig.height=6, fig.width=9, echo=FALSE, warning=FALSE, message=FALSE, paged.print=TRUE}
+
+#zweite Ordnung
+wc_ktg2 <- make_ego_graph(wc_ow, order = 2, nodes = V(wc_ow)$name2 == "KTG", mode ="all")
+
+wc_ktg2 <- wc_ktg2[[1]]
+
+V(wc_ktg2)[V(wc_ktg2)$type == 1]$shape = "circle"
+V(wc_ktg2)[V(wc_ktg2)$type == 2]$shape = "square"
+V(wc_ktg2)[V(wc_ktg2)$type == 1]$color = "peru"
+V(wc_ktg2)[V(wc_ktg2)$type == 2]$color = "royalblue"
+
+plot(wc_ktg2,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_ktg2),
+     main="Karl-Theodor-zu-Guttenberg-Netzwerk, zweite Ordnung",
+     sub="Collar-Crime",
+     vertex.label=V(wc_ktg2)$name2)
+
+# dritte Ordnung
+wc_ktg3 <- make_ego_graph(wc_ow, order = 3, nodes = V(wc_ow)$name2 == "KTG", mode ="all")
+
+wc_ktg3 <- wc_ktg3[[1]]
+
+V(wc_ktg3)[V(wc_ktg3)$type == 1]$shape = "circle"
+V(wc_ktg3)[V(wc_ktg3)$type == 2]$shape = "square"
+V(wc_ktg3)[V(wc_ktg3)$type == 1]$color = "peru"
+V(wc_ktg3)[V(wc_ktg3)$type == 2]$color = "royalblue"
+
+plot(wc_ktg3,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_ktg3),
+     main="Karl-Theodor-zu-Guttenberg-Netzwerk, dritte Ordnung",
+     vertex.label=V(wc_ktg3)$name2)
+
+# Darstellung als Vergleich:
+
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(wc_ktg1, edge.arrow.size=.3, main="Erster Grad")
+plot(wc_ktg2, edge.arrow.size=.3,  main="Zweiter Grad")
+plot(wc_ktg3, edge.arrow.size=.3, main="Dritter Grad")
+
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+```
+
+Die Visualisierung zeigt, dass Guttenberg eine direkte Verbindung zu zwei anderen Clustern besitzt.
+Eine Verbindung besteht zu Markus Braun, dem ehemaligen Vorstandsvorsitzenden der Wirecard AG. Diese Verbindung war bereits im Egonetzwerk von Markus Braun ersichtlich.
+Die zweite Verbindung von
+Guttenberg besteht zur Bundeskanzlerin Angela Merkel, die wiederum in Kontakt mit wichtigen Personen steht wie Lars-Hendrik Röller, dem Leiter der Wirtschafts- und Finanzabteilung im Bundeskanzleramt.
+Somit pflegt Guttenberg Kontakte zu einem der wichtigsten und einflussreichsten Bereiche im gesamten
+Netzwerk: der Politik.
+Neben diesen beiden Verbindungen zu anderen Clustern, befinden sich in Guttenbergs Cluster die amerikanische Investment- und Consultingfirma Spitzberg Partners sowie der bayerische Politiker und Manager Georg Freiherr von Waldenfels.
+
+------------------------------------------------------------------------
+
+ [[IH1]](#_msoanchor_1)Interpretation hab ich hinzugefügt, die hat noch
+gefehlt.
+Hoffe das passt so.
+
+#### 4.4.3.3. Egonetzwerk Karl-Theodor zu Guttenberg, Cluster Walktrap Algorithmus
+
+```{r Egonetzwerk Karl-Theodor zu Guttenberg - Cluster Walktrap Algorithmus, fig.height=6, fig.width=9, echo=FALSE, fig.height=6, fig.width=9, warning=FALSE, message=FALSE, paged.print=TRUE}
+   
+is_connected(wc_ktg3)
+
+cw3 <- cluster_walktrap(wc_ktg3) # wendet die Clusterung auf das Netzwerk an
+modularity(cw3) # berechnet den Modularitätswert
+membership(cw3) # weist die Mitgliedschaft in die Community zu
+plot(cw3, wc_ktg3,
+     vertex.label=V(wc_ktg3)$name2,
+     edge.curved=curve_multiple(wc_ktg3)) 
+```
+
+## 4.5. Zentralitäts- und Netzwerkmaße
+
+Je nach Auswahl des Netzwerks unterscheiden sich die Analyseergebnisse stark.
+Deshalb ist es notwendig zunächst zu klären, welche Netzwerke untersucht werden sollen.
+
+Damit die Daten konsistent bleiben, werden hier das vereinfachte Gesamtnetzwerk sowie die vereinfachten Unternetzwerke erneut erstellt.
+Das ist in der Regel nicht notwendig, dient hier aber der Absicherung der Datenkonsistenz.
+
+### 4.5.1. Degree
+
+Anhand des Degree-Werts werden die Knoten mit den meisten Beziehungen ermittelt.
+Eine Unterscheidung zwischen Indegree- und Outdegree ist hierbei nicht notwendig, da es sich bei Wirecard um ein ungerichtetes Netzwerk handelt.
+
+```{r Degree-Berechnung, echo=FALSE}
+# Berechnung des Degree-Werts
+degree_wc <- degree(wc, normalized=T)
+
+# Knoten mit dem höchsten Degree-Wert 
+which.max(degree_wc)
+# Den höchsten Degree hat Wirecard, den zweithöchsten Degree hat Jan Marsalek, danach kommt Markus Braun.
+```
+
+### 4.5.2. Betweenness und Broker im Netzwerk
+
+```{r höchster Betweennes-Wert - Brokerfunktion, echo=FALSE, fig.height=6, fig.width=8, warning=FALSE, message=FALSE, paged.print=TRUE}
+wc_ow <- delete.vertices(wc, V(wc)[name2="Wirecard"])
+bs <- betweenness(wc_ow, normalized=T)
+
+which.max(bs)
+
+# Dauerhafte Markierung des Knoten MB
+# (in diesem Fall wir die Rahmenfarbe rot gesetzt)
+V(wc_ow)[V(wc_ow)$name2=="MB"]$frame.color = "red"
+V(wc_ow)[V(wc_ow)$industry==5]$color = "yellow"
+V(wc_ow)[V(wc_ow)$industry!=5]$color = "grey"
+
+plot(wc_ow,
+     asp=0,
+     layout=layout_with_kk,
+     #vertex.size=ds, # Knotengröße nach Gewicht
+     vertex.size=bs*80+5,
+     edge.arrow.size=.3,
+     main = "Visualisierung Broker",
+     sub = "höchster Broker-Wert in rot umrandet",
+     vertex.label = NA)
+
+```
+
+Den höchsten Betweenness-Wert hat Wirecard.
+Den zweithöchsten Wert hat Jan Marsalek, danach Mark Tollentino.
+Dadurch wird deutlich, dass diese Akteure eine besonders entscheidende Position im Netzwerk erfüllen und ohne sie vielfältige Verbindungen im Wirecard-Betrugsfall möglicherweise nicht umgesetzt worden wären.
+
+### 4.5.3. Closeness
+
+```{r Closeness, echo=FALSE, fig.height=6, fig.width=8, warning=FALSE, message=FALSE, paged.print=TRUE}
+   
+# Closeness Wert 
+#closeness(wc)
+#closeness(wc_mb1)
+#closeness(wc_mb2)
+#closeness(wc_mb3)
+#closeness(wc_jm1)
+#closeness(wc_jm2)
+#closeness(wc_jm3)
+
+# Closeness-Werte aller Personen im Braun-Egonetzwerk
+wc_mb3_close <- closeness (wc_mb3)
+
+# Person mit dem höchsten Closeness-Wert im Teilnetzwerk Braun anzeigen
+which.max(wc_mb3_close)
+
+# Closeness-Werte aller Personen im Marsalek-Egonetzwerk
+wc_jm3_close <- closeness (wc_jm3)
+
+# Person mit dem höchsten Closeness-Wert im Teilnetzwerk Marsalek anzeigen
+which.max(wc_jm3_close)
+```
+
+Den höchsten Closeness-Wert hat Markus Braun, gefolgt von Staatssekretär Jörg Kukies.
+Platz drei Teilen sich Karl-Theodor zu Guttenberg und das Big4-Unternehmen KPMG.
+
+### 4.5.4. Analyse mit dem InfluenceR
+
+```{r InfluenceR Paket: Analyse von einflussreichen Knoten, echo=FALSE, fig.height=6, fig.width=9, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# hier wird einlesen
+library(igraph)
+library(influenceR)
+
+# I ens(wc) ermittelt den Zugang zu strukturellen Löchern in einem Netzwerk
+# II bridging(wc) berechnet die Knoten, die sogenannte Brücken, die es ermöglichen, schneller andere Knoten zu erreichen.
+holes <- ens(wc_ow)
+which.max(holes)
+
+# Bridges von Wirecard
+bridges <- bridging(wc_ow)
+which.max(bridges)
+
+# Größter und kleinster Wert bekommen eine Randfarbe zugewiesen.
+V(wc)[V(wc)$name2 == "JM"]$frame.color <- "green"
+V(wc)[V(wc)$name == "KTG"]$frame.color <- "red"
+
+plot(wc, 
+     layout=layout_nicely,
+     main="Einflussreiche Knoten",
+     sub="Strukturelle Löcher (grün) und Brücken (rot)",
+     edge.arrow.size=.1,
+     edge.color="black",
+     vertex.color="royalblue",
+     vertex.label.color="black"
+     )
+```
+
+Bei der Ermittlung der Löcher und Brücken wurde das vereinfachte Netzwerk ohne Wirecard verwendet.
+Die Darstellung findet jedoch wieder im Gesamtnetzwerk statt.
+Das größte strukturelle Loch tritt beim Knoten "Jan Marsalek" auf.
+Über den Knoten "Karl-Theodor zu Guttenberg" wird jedoch eine sogenannte Brücke aufgebaut.
+Damit können über ihn schneller andere Knoten erreicht werden.
+
+# 5. Finale Visualisierung
+
+## 5.1. Finales Gesamtnetzwerk
+
+```{r Gesamtnetzwerk final, echo=FALSE, fig.height=9, fig.width=16, message=FALSE, warning=FALSE, paged.print=TRUE}
+library(igraph)
+library(RColorBrewer)
+el <- read.csv("https://raw.githubusercontent.com/elenagrunow/SNA/main/wirecard/network/edge_wirecard.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/elenagrunow/SNA/main/wirecard/network/node_wirecard.csv", header=T, as.is=T, sep = ",")
+wc_matrix <- as.matrix(el)
+wc <- graph_from_data_frame(d=wc_matrix, vertices = nodes, directed=FALSE)
+
+
+
+# Erstellung Betweenness-Wert
+wc_ow <- delete.vertices(wc, V(wc)[name2="Wirecard"])
+ds <- degree(wc_ow, normalized=TRUE)
+#bs <- betweenness(wc_ow, normalized=TRUE)
+bs_max <- bs*100+5
+ds_max <- ds*30
+# graphische Elemente
+
+# Farbabstufung
+fine = 10 
+
+#Farbverlauf festlegen in Blautönen
+blau = colorRampPalette(c('lightblue','darkblue'))
+
+abstufung = blau(fine)[as.numeric(cut(bs_max, breaks = fine))]
+
+# Shapes
+#V(wc)$shape <- c("circle", "square") [V(wc)$type+1]
+
+# Visualisierungen
+#V(wc)[V(wc)$type == 1]$shape <- "circle"
+#V(wc)[V(wc)$type == 2]$shape <- "square"
+E(wc)$color <- "lightblue"
+E(wc)$arrow.size <- .1
+E(wc)$width <- E(wc)$weight
+E(wc)$curved=.2
+V(wc)$frame.color = "white"
+V(wc)$label.dist = 0
+V(wc)$label.degree=6
+V(wc)$label.cex=.8
+V(wc)$label.family="Helvetica"
+V(wc)$label.font=1
+V(wc)$label.color="black"
+
+
+# der folgende Plot ist um einige weitere Visualisierungsparameter ergänzt
+plot(wc,
+     asp=0,
+     margin=0,
+     layout=layout_nicely,
+     #vertex.size=bs_max,
+     vertex.color=abstufung, 
+     edge.curved=curve_multiple(wc),
+     main="Finale Gesamtvisualisierung",
+     sub="Anpassung der Akteursknoten an den Brokerwert",
+     vertex.label=V(wc)$name2)
+
+```
+
+Die Finale Visualisierung zeigt nach unterschiedlicher Farbintensität den Betweenness-Wert und den Brokerwert der einzelnen Akteure bzw.
+Unternehmen/Organisationen des Wirecard Netzwerks.
+Je dunkler die Farbe, umso höher ist der Betweenness Wert der Knoten.
+Hierbei sind Markus Braun und Jan Marsalek die zwei bedeutendsten Akteure.
+Karl-Theodor zu Guttenberg ist ebenfalls wichtiger Akteur im Netzwerk, allerdings zeigt die hellere Nuance seines Knotens, dass er einen nicht so hohen Betweenness bzw.
+Brokerwert besitzt.
+
+## 5.2. Finaler Vergleich Egonetzwerke der Broker
+
+```{r Finaler Egonetzwerk, fig.height=6, fig.width=9, echo=FALSE, warning=FALSE, message=FALSE, paged.print=TRUE}
+
+# Markus Braun
+wc_mb1 <- make_ego_graph(wc_ow, order = 1, nodes = V(wc_ow)$name2 == "MB", mode ="all")
+
+wc_mb1 <- wc_mb1[[1]]
+
+V(wc_mb1)[V(wc_mb1)$type == 1]$shape = "circle"
+V(wc_mb1)[V(wc_mb1)$type == 2]$shape = "square"
+V(wc_mb1)[V(wc_mb1)$type == 1]$color = "peru"
+V(wc_mb1)[V(wc_mb1)$type == 2]$color = "royalblue"
+
+plot(wc_mb1,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_mb1),
+     main="Markus-Braun-Netzwerk",
+     vertex.label=V(wc_mb1)$name2)
+
+# Jan Marsalek
+wc_jm1 <- make_ego_graph(wc_ow, order = 1, nodes = V(wc_ow)$name2 == "JM", mode ="all")
+
+wc_jm1 <- wc_jm1[[1]]
+
+V(wc_jm1)[V(wc_jm1)$type == 1]$shape = "circle"
+V(wc_jm1)[V(wc_jm1)$type == 2]$shape = "square"
+V(wc_jm1)[V(wc_jm1)$type == 1]$color = "peru"
+V(wc_jm1)[V(wc_jm1)$type == 2]$color = "royalblue"
+
+plot(wc_jm1,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_jm1),
+     main="Jan-Marsalek-Netzwerk",
+     vertex.label=V(wc_jm1)$name2)
+
+# Karl-Theodor zu Guttenberg
+wc_ktg1 <- make_ego_graph(wc_ow, order = 1, nodes = V(wc_ow)$name2 == "KTG", mode ="all")
+
+wc_ktg1 <- wc_ktg1[[1]]
+
+V(wc_ktg1)[V(wc_ktg1)$type == 1]$shape = "circle"
+V(wc_ktg1)[V(wc_ktg1)$type == 2]$shape = "square"
+V(wc_ktg1)[V(wc_ktg1)$type == 1]$color = "peru"
+V(wc_ktg1)[V(wc_ktg1)$type == 2]$color = "royalblue"
+
+plot(wc_ktg1,
+     asp=0,
+     layout=layout_with_kk,
+     edge.arrow.size=.5,
+     vertex.size=bs*80+5,
+     edge.curved=curve_multiple(wc_ktg1),
+     main="Karl-Theodor-zu-Guttenberg-Netzwerk",
+     vertex.label=V(wc_ktg1)$name2)
+
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(wc_mb1, main="Markus Braun")
+plot(wc_jm1, main="Jan Marsalek")
+plot(wc_ktg1, main="Karl-Theodor zu Guttenberg")
+
+
+```
+
+Abschließend zeigt diese Visualisierung nochmals die drei bedeutendsten Akteure des gesamten Wirecard-Netzwerks im Vergleich.
+Markus Braun und Jan Marsalek haben entscheidendere Positionen zu anderen Akteuren bzw.
+Organisationen als Karl-Theodor zu Guttenberg.
+Während Markus Braun hauptsächlich Verbindungen zu anderen Personen besitzt, ist Marsalek der Akteur, der am meisten Kontakt zu anderen Unternehmen hat.
+Vergleicht man die Egonetzwerke von Braun und Marsalek fällt auf, dass Braun zwar weniger Verbindungen zu anderen Knoten besitzt, wie Marsalek.
+Jedoch ist auffällig, dass Braun hauptsächlich Kontakt zu einflussreichen Politikern besitzt, wie Sebastian Kurz.
+Außerdem hat er Kontakt zu Guttenberg, der wiederum mit Angela Merkel verbunden ist.
+Hierbei ist Guttenbergs Rolle wichtig zu erwähnen.
+Auch wenn er nur mit wenigen Akteuren verknüpft ist, dient er als Brücke und gilt als unerwartet wichtiger Akteur.
+Er verschafft den zwei Brokern Braun und Marsalek Zugang zu einem der wichtigsten Bereiche, der Politik.
+Marsalek hat überwiegend Kontakt zu ausländischen Geschäftspartnern und Wirecard Personal.
+Interessant ist, dass die Broker alle direkt beziehungsweise indirekt miteinander verbunden sind.
+Braun und Marsalek stehen in direktem Kontakt zueinander sowie Braun und Guttenberg.
+Guttenberg und Marsalek sind also auch indirekt über Markus Braun miteinander verbunden.
+Abschließend ist anzunehmen, dass die Verbindung der drei Egos untereinander dafür sorgt, dass diese Akteure ein gut verbundenes Netzwerk bilden.
+Somit vereinen sie ihre Beziehungen durch ihren jeweiligen Kontakt zu den unterschiedlichen Bereichen (Politik, ausländische Geschäftspartner und Wirecard-Personal).
+Ohne diese Akteure wäre dieses Netzwerk wahrscheinlich nicht in dieser Konstellation zustande gekommen.
+
+# 6. Diskussion: Fazit, Limitationen und Ausblick
+
+In dieser Netzwerkanalyse zum Wirecard-Skandal haben wir drei zentrale Personen identifiziert.
+Wenig überraschend sind darunter das ehemalige Vorstandsmitglied, Jan Marsalek, sowie der ehemalige Vorstandsvorsitzende der Wirecard AG, Markus Braun.
+Marsalek war dabei der Kontaktmann zu anderen Unternehmen, Braun pflegte die wichtigen Kontakte in die Politik.
+Dabei kommt die dritte zentrale Person ins Spiel, Karl-Theodor zu Guttenberg.
+Er war es, der für Wirecard im Bundeskanzleramt lobbyierte und so für wichtige politische Rückendeckung sorgte.
+Die Verbindung Wirecard-Braun-Guttenberg-Politik lässt sich sowohl im Ego-Netzwerk von Markus Braun als auch in der Gesamtvisualisierung nachvollziehen.
+Guttenberg hatte demnach durch seine guten Beziehungen in die Politik eine Brückenfunktion inne, die er zum Vorteil für Wirecard nutzte.
+Besonders interessant ist an der Person Guttenberg auch, dass man ihm durch seine politische Karriere als zweifacher Bundesminister, die er Bundeskanzlerin Angela Merkel zu verdanken hat, eine Nähe zur Kanzlerin attestieren kann.
+Auch deshalb musste Merkel am 23.
+April im Wirecard-Untersuchungsausschuss des Deutschen Bundestages aussagen.
+
+Besonders hervorzuheben ist die Erkenntnis, dass das System Wirecard wohl nie so groß hätte werden können, wenn die drei Broker Marsalek, Braun und Guttenberg nicht mit den wichtigen Entscheidern vernetzt gewesen wären.
+
+Limitiert werden die Ergebnisse dieser Netzwerkanalyse schon allein durch den Fakt, dass wir uns nur in öffentlich zugänglichen Quellen informieren konnten.
+So bleiben etwaige vorhandene, bisher unbekannte Verbindungen natürlich weiter unentdeckt.
+Zudem sind nicht alle Rechercheergebnisse der Journalistinnen und Journalisten auch validiert.
+Manche Beschuldigte bestreiten die Vorwürfe, die gegen sie erhoben werden.
+So kann diese Netzwerkanalyse keine Antworten auf die Fragen nach der Schuld oder Unschuld liefern, wie es bei diesem Crime-Thema vielleicht von Außenstehenden erwartet wird.
+Jedoch kann sie zum Verständnis beitragen, wie das offensichtlich kriminelle System Wirecard jahrelang funktionieren konnte.
+
+In Zukunft wird es spannend zu sehen sein, ob es in der nächsten Legislaturperiode des Deutschen Bundestages einen zweiten Untersuchungsausschuss zur Aufklärung der Wirecard-Skandals geben wird.
+Eine Neuauflage nach der Bundestagswahl 2021 hat unter anderem der aktuelle Vorsitzende des Untersuchungsausschusses Wirecard, Kay Gottschalk MdB, in einem Hintergrundgespräch mit den Autorinnen und Autoren dieses Forschungsberichts gefordert.
+Wir würden es nach eingehender Beschäftigung mit dem Wirecard-Skandal begrüßen, wenn weiter aufgeklärt werden würde.
+Insbesondere Fragen zu den Rollen der Geheimdienste im Wirecard-Konstrukt bleiben nach wie vor offen.
+
+# 7. Anlage
+
+## 7.1. Literatur
+
+-   Burgess, T.F & Shaw, N.E.
+    (2010).
+    *Editorial Board Membership of Management and Business Journals: A Social Network Analysis Study of the Financial Times 40.* British Journal of Management, 21(3), Special Issue: An international forum advancing theory and research, S.627-648.
+
+-   Burt, R.
+    (2007).
+    *Secondhand Brokerage: Evidence on the Importance of Local Structure for Managers, Bankers and Analysts.* Academy of Management Journal 50, S.
+    119-148.
+
+-   Gamper, M.
+    (2020).
+    Netzwerkanalyse - eine methodische Annäherung.
+    In: Klärner, A., Gamper, M., Keim-Klärner, S., Moor, I., Von der Lippe, H., Vonneilich, N.
+    (Hrsg.), *Soziale Netzwerke und gesundheitliche Ungleichheiten.* Wiesbaden: Springer VS, S.109-136.
+
+-   Gamper, M.
+    (2020).
+    Netzwerktheorie - Ein Überblick.
+    In: Klärner, A., Gamper, M., Keim-Klärner, S., Moor, I., Von der Lippe, H., Vonneilich, N.
+    (Hrsg.), *Soziale Netzwerke und gesundheitliche Ungleichheiten.* Wiesbaden: Springer VS, S.49-64.
+
+-   Gaugler, M.
+    (2009).
+    Sinnvoll oder skandalös?
+    Personelle Verflechtungen von Parlament und Wirtschaft durch die Nebentätigkeiten der Abgeordneten.
+    Eine Netzwerkanalyse.
+    In: Schneider V., Janning F., Leifeld P., Malang T.
+    (Hrsg.), *Politiknetzwerke.* Wiesbaden: VS Verlag für Sozialwissenschaften.
+
+-   KPMG-Studie (2020).
+    *Wirtschaftskriminalität in Deutschland 2020,* <https://home.kpmg/de/de/home/media/press-releases/2020/08/kpmg-studie-wirtschaftskriminalitaet-in-deutschland-2020.html>
+
+-   KPMG (2011).
+    *Analysis of global patterns of fraud: Who is the typical fraudster?,* <https://www.icfp.co.za/sites/default/files/articles/who_is_the_typical_fraudster.pdf>
+
+-   Krenn, K.
+    (2010).
+    Wirtschaftsforschung.
+    In: Gamper, M.
+    & Reschke, L.
+    (Hrsg.), *Knoten und Kanten: Soziale Netzwerkanalyse in Wirtschafts- und Migrationsforschung.* Bielefeld: Transcript Verlag, S.119-144.
+
+-   Pircher, R.
+    (2010).
+    Soziale Netzwerkanalyse in Organisationen-versteckte Risiken und Potentiale erkennen.
+    In: Pircher, R.
+    (Hrsg.), *Wissensmanagement, Wissenstransfer, Wissensnetzwerke: Konzepte, Methoden und Erfahrungen.* Erlangen: Publicis Publishing, S.211-231.
+
+-   Raab, J.
+    (2010).
+    Netzwerke und Netzwerkanalyse in der Organisationsforschung.
+    In: Stegbauer, C.
+    & Häußling, R.
+    (Hrsg.), *Handbuch Netzwerkforschung.* Wiesbaden: Springer VS, S.575-586.
+
+-   Ricken, B.
+    & Seidl, D.
+    (2010).
+    *Unsichtbare Netzwerke: Wie sich die soziale Netzwerkanalyse für Unternehmen nutzen lässt.* Wiesbaden: Springer VS.
+
+## 7.2. Codebuch {#codebuch-1}
+
+[Codebuch](#codebuch-1) <https://github.com/elenagrunow/SNA/blob/main/wirecard/network/Codebuch.Rmd>
+
+```{r Übersicht Netzwerkattribute}
+
+list.vertex.attributes(wc)
+
+#vertex.attributes(wc)
+
+list.edge.attributes(wc)
+
+#edge.attributes(wc)
+
+```
+
+Das Netzwerk hat nach dem [Codebuch](#codebuch-1) <https://github.com/elenagrunow/SNA/blob/main/wirecard/network/Codebuch.Rmd> folgende Attribute:
+
+*Vertex-Attribute*
+
+-   id: ID wie in der Edgelist zur Identifikation der Knoten
+
+-   name: Gesamter Name des Knotens
+
+-   name2: Zweiter Name, um id für die Knoten verwenden zu können
+
+-   sex: Geschlecht 1 weiblich, 2 männlich, 3 divers
+
+-   influence: Einflussnahme des Akteurs aus Wirtschaft oder Politik 1 sehr gering, 2 gering, 3 kann Einfluss nehmen, 4 hoch, 5 sehr hoch
+
+-   age: Alter der Personen 1 bis 25 Jahre, 2 30-40 Jahre, 3 41-60 Jahre, 4 61 und älter
+
+-   position: Position im Unternehmen/Organisation 0 keine Angabe, 1 Top-Verantwortung, 2 Leader, 3 No responsibility
+
+-   type: 0 Wirecard, 1 Person, 2 Organisation/Regierung/Unternehmen
+
+-   industry: 1 Insider (Wirecard-Personal), 2 Banken/Wirtschaftsprüfer, 3 Journalisten/Whistleblower, 4 Justiz, 5 Politik, 6 Wirtschaft, 7 Ermittler (Polizei, Untersuchungsausschuss)
+
+-   country: Hauptwohnsitz der Person, der Organisation
+
+-   source1: 1 Untersuchungsausschuss, 2 Berichterstattung Inland, 3 Berichterstattung Ausland
+
+-   source2: Link zu der Quelle
+
+*Edge-Attribute*
+
+-   id: Entspricht einer Abkürzung eines Mitarbeiters von Wirecard oder einer Person außerhalb des Unternehmens bzw.
+    einer Organisation oder Behörde, die unmittelbar mit Wirecard in Verbindung stand
+
+```{=html}
+<!-- -->
+```
+-   weight: Häufigkeit des Kontakts einer Person/Organisation/Behörde zu Wirecard 1 einmaliger Kontakt, 2 mehrmals Kontakt (2-4x), 3 häufiger Kontakt (ab 5x)
+
+-   relation: Beziehungsart zwischen den Personen/Organisationen/Behörden und Wirecard 1 Beschäftigungsverhältnis/Zusammenarbeit/Mitarbeiter, 2 flüchtige Geschäftsbeziehung mit Wirecard (Beratung), 3 beeinflussende Geschäftsbeziehung (Lobbying), 4 andauernde Beziehung (Freundschaft), 5 Geldgeber, 6 Hinweisgeber, 7 Überprüfung, 8 Kunden, 9 Investoren
+
+-   source1: 1 Untersuchungsausschuss, 2 Berichterstattung Inland, 3 Berichterstattung Ausland
+
+-   source2: Link zu der Quelle
+
+## 7.3. Datenmaterial und Skript
+
+[Datensatz] <https://github.com/elenagrunow/SNA/tree/main/wirecard/network>\
+Die Quellen der Datenerhebung sind in der Edge- und Nodelist codiert.
+
+## 7.4. Team, Arbeitsaufwand und Lessons Learned
+
+### 7.4.1. Teammitglieder
+
+Elena Grunow\
+Patchara Wieczorek\
+Evelyn Fade\
+Isabella Heider\
+Kai Leitenberger\
+Severin Kö
+hler
+
+### 7.4.2. Arbeitsaufwand und Rollen im Team
+
+Elena Grunow (most valuable teammate): Projektleitung, Coding & Visualisierung, Datensammlung aus dem Untersuchungsausschuss
+
+Isabella Heider: Datensammlung aus dem Untersuchungsausschuss, Literaturrecherche für den Forschungsstand, Anlagen, Karl-Theodor zu Guttenberg
+
+Patchara Wieczorek: Datensammlung aus der inländischen Berichterstattung, Erklärungsmuster für den Forschungsbericht, Interpretation Egonetzwerke
+
+Evelyn Fade: Datensammlung aus der inländischen Berichterstattung, Analyse der Teilnetzwerke für den Forschungsbericht, Interviews führen
+
+Kai Leitenberger: Datensammlung aus der ausländischen Berichterstattung, Abstract und Hinführung für den Forschungsbericht, Fazit und Ausblick des Forschungsberichts, Interviews führen
+
+Severin Köhler: Datensammlung aus der ausländischen Berichterstattung, Netzwerk- und Zentralitätsmaße des Forschungsberichts, Interviews anfragen und führen
+
+### 7.4.3. Lessons Learned
+
+Größte Herausforderung: Eine der größten Herausforderungen für uns war, die Fehlermeldungen zu beheben.
+Beispielsweise wollten wir die id als Label für die Knoten verwenden, was zuerst nicht funktionierte.
+Man muss zuerst ein neues Attribut mit name2 erstellen und die id dorthin kopieren, um die id als Label verwenden zu können.
+Zusätzlich war es herausfordernd eine doppelte Verwendung einer id in der Nodelist zu entlarven, vor allem bei einer Anzahl von über 100 Akteuren.
+
+Eine schönere Visualisierung der Netzwerke stellte uns ebenfalls vor mehrere Herausforderungen.
+Bis die Größe der Knoten stimmte, die richtigen Farben eingesetzt wurden, die verschiedenen Formen funktionierten und alles so war, wie wir uns das vorgestellt hatten, vergingen mehrere Stunden.
+
+Größter Lernerflog: Ein Lernerfolg, den wir aus dieser Projektarbeit mitgenommen haben, ist die Bedeutung von Kommunikation zwischen den einzelnen Teammitgliedern.
+Die Kommunikation im Team und die Verteilung der Aufgaben sind die Basis für ein erfolgreiches Teamprojekt.
+Genau wie die Zusammenarbeit das A und O ist, ganz nach dem Motto: Teamwork is Dreamwork!
+Ein großer Erfolg sind unser fertiges Gesamtnetzwerk, die einzelnen Teilnetzwerke sowie unser Forschungsbericht und unser Edit Artikel über unser Projekt.
+Jedoch haben wir die letzten zwei Semester festgestellt: Den „einen großen Erfolg", den gibt es nicht. Es sind die kleinen, einzelnen Erfolge, egal wie klein sie auch sein mögen, die alle ihren Beitrag zum großen, gesamten Erfolg leisten.
