@@ -53,6 +53,13 @@ Jede ID entspricht einer Abkürzung eines Mitarbeiters von Wirecard oder einer P
 2 = flüchtige Geschäftsbeziehung mit Wirecard (Beratung)
 1 = Beschäftigungsverhältnis/Zusammenarbeit/Mitarbeiter
 
+**source1**
+1 = Untersuchungsausschuss
+2 = Berichterstattung Inland
+3 = Berichterstattung Ausland
+
+**source2**
+Der Link der Quelle der Beziehung wird angegeben.
 
 # NODE-Attribute
 **id**
