@@ -28,7 +28,7 @@ Für das Beziehungsnetzwerk *Contacts* wurde die Häufigkeit eines Kontakts zwis
 
 ### Verbindungsnetzwerk Wirecard
 2. Welche Art der Beziehung besteht zwischen den Mitarbeitern des Unternehmens und den Akteuren außerhalb des Unternehmens?
-Für das Verbindungsnetzwerk *Ratio* wurde der Person/Organisation/Behörde, die eine dauerhafte Beziehung (Freundschaft) zu Wirecard hatte, ein Gewicht von 4 vergeben, die Person/Organisation/ Behörde, die in einer beeinflussenden Geschäftsbeziehung zum Unternehmen Wirecard stand (Lobbying) erhielt ein Gewicht von 3. Die Person/Organisation/ Behörde, die nur eine flüchtige Geschäftsbeziehung zu Wirecard (Beratung) hatte, erhielt das Gewicht 2. Mit dem Gewicht 1 wurde ein Beschäftigungsverhältnis beschrieben. Insgesamt waren 4 Beziehungsmuster möglich.
+Für das Verbindungsnetzwerk *Relation* wurde der Person/Organisation/Behörde, die eine dauerhafte Beziehung (Freundschaft) zu Wirecard hatte, ein Gewicht von 4 vergeben, die Person/Organisation/ Behörde, die in einer beeinflussenden Geschäftsbeziehung zum Unternehmen Wirecard stand (Lobbying) erhielt ein Gewicht von 3. Die Person/Organisation/ Behörde, die nur eine flüchtige Geschäftsbeziehung zu Wirecard (Beratung) hatte, erhielt das Gewicht 2. Mit dem Gewicht 1 wurde ein Beschäftigungsverhältnis beschrieben. Insgesamt waren 4 Beziehungsmuster möglich.
 
 # EDGE-Attribute
 **id**
